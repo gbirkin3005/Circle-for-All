@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<voice-interaction-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:sessionService="com.gbirkin3005.circleapp.assist.CircleSessionService"
+    android:recognitionService="com.gbirkin3005.circleapp.assist.CircleRecognitionService"
+    android:settingsActivity="com.gbirkin3005.circleapp.MainActivity"
+    android:supportsAssist="true"
+    android:supportsLaunchVoiceAssistFromKeyguard="true"
+    android:supportsLocalInteraction="true" />

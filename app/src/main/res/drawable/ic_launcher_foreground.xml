@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Радужное кольцо: плавный sweep-градиент по кругу, чистый вектор -->
+    <group android:rotation="-90" android:pivotX="54" android:pivotY="54">
+        <path android:pathData="M54,54 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:type="sweep"
+                    android:centerX="54"
+                    android:centerY="54">
+                    <item android:offset="0" android:color="#4285F4" />
+                    <item android:offset="0.22" android:color="#34A853" />
+                    <item android:offset="0.45" android:color="#EA4335" />
+                    <item android:offset="0.72" android:color="#FBBC05" />
+                    <item android:offset="1" android:color="#4285F4" />
+                </gradient>
+            </aapt:attr>
+        </path>
+    </group>
+    <!-- Белое «отверстие» в центре — формирует кольцо -->
+    <path
+        android:pathData="M54,54 m-21,0 a21,21 0 1,1 42,0 a21,21 0 1,1 -42,0"
+        android:fillColor="#FFFFFF" />
+</vector>
