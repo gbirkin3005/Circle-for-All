@@ -2,6 +2,18 @@ plugins {
     id("com.android.application")
 }
 
+import java.util.Properties
+
+/**
+ * Ключ подписи релиза. Лежит вне репозитория: и сам файл, и пароли к нему —
+ * это то, чем подтверждается, что обновление выпустил тот же автор.
+ * Если файла нет, сборка не падает: релиз просто соберётся неподписанным.
+ */
+val signing = Properties().apply {
+    val file = rootProject.file("keystore.properties")
+    if (file.exists()) file.inputStream().use(::load)
+}
+
 android {
     namespace = "com.gbirkin3005.circleapp"
     compileSdk = 37
@@ -15,8 +27,23 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        if (signing.containsKey("storeFile")) {
+            create("release") {
+                storeFile = rootProject.file(signing.getProperty("storeFile"))
+                storePassword = signing.getProperty("storePassword")
+                keyAlias = signing.getProperty("keyAlias")
+                keyPassword = signing.getProperty("keyPassword")
+
+                enableV1Signing = false
+                enableV2Signing = true
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.findByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
