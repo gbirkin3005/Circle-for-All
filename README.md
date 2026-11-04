@@ -109,4 +109,4 @@ app/src/main/java/com/gbirkin3005/circleapp/
 
 ## Лицензия
 
-[GPL-3.0](LICENSE) (как у референсного проекта).
+[GPL-3.0](LICENSE)
